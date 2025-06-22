@@ -2,12 +2,9 @@
 
 public class LineModel
 {
-    private DateTime _date;
-    private double _quantity;
-    private double _value;
-    public DateTime Date => _date;
-    public double Quantity => _quantity;
-    public double Value => _value;
+    public DateTime Date { get; private set; }
+    public double Quantity { get; private set; }
+    public double Value { get; private set; }
 
     public LineModel(string line)
     {
@@ -37,8 +34,8 @@ public class LineModel
             counter++;
         }
 
-        _date = DateTime.Parse(date);
-        _quantity = double.Parse(quantity);
-        _value = double.Parse(value);
+        Date = DateTime.Parse(date);
+        Quantity = double.Parse(quantity);
+        Value = double.Parse(value);
     }
 }

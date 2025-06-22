@@ -2,9 +2,9 @@
 
 namespace apprenticeship_project.Controller;
 
-public class DataController
+public class Data
 {
-    public DataController()
+    public Data()
     {
         Console.WriteLine("--CSV files analyse app--");
         Console.Write("Write path to your file: ");
@@ -12,7 +12,7 @@ public class DataController
         var path = Console.ReadLine();
         var source = new SourceCheck(@path);
         var lines = new List<string>();
-        var linesModel = new List<LineModel>();
+        var linesModel = new List<LineModel>(); //here are all lines of file
         var checkFileStruct = source.CheckFilesStructure;
         var fileContent = source.FileContent;
         var groups = source.Groups;
@@ -39,7 +39,7 @@ public class DataController
             for (var i = 0; i < lines.Count; i++)
             {
                 var line = lines[i];
-                var lineModel = new LineModel(line);
+                var lineModel = new LineModel(line); 
 
                 linesModel.Add(lineModel);
             }

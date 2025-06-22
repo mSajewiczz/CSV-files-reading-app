@@ -7,6 +7,6 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        var dataController = new DataController();
+        var dataController = new Data();
     }
 }
