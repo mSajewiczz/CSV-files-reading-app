@@ -1,9 +1,15 @@
 ﻿using apprenticeship_project.Model;
 
-namespace apprenticeship_project.Controller;
+namespace apprenticeship_project;
 
 public class Data
 {
+    //1. collection of lines of the same group 
+    //2. calculate everything and just return ready data to user 
+    //3. if you have already all lines as objects sort it by group (that had been provided by user before that) and if group == userGroup add it to collection of lines with same group (?) 
+
+
+    //what do I need: all groups to sort & to tell user what types of groups are in file, collection of LineModels there you add Object.Group, object as line from file, 
     public Data()
     {
         Console.WriteLine("--CSV files analyse app--");
@@ -12,9 +18,13 @@ public class Data
         var path = Console.ReadLine();
         var source = new SourceCheck(@path);
         var lines = new List<string>();
-        var linesModel = new List<LineModel>(); //here are all lines of file
+
+
+        var linesModel =
+            new List<LineModel>(); //here are all lines of file as objects -> so you can only read data like value, quantity or date.
+
         var checkFileStruct = source.CheckFilesStructure;
-        var fileContent = source.FileContent;
+        var fileContent = source.FileContent; //here are all lines of file
         var groups = source.Groups;
         var group = "";
         var counter = 0;
@@ -39,8 +49,7 @@ public class Data
             for (var i = 0; i < lines.Count; i++)
             {
                 var line = lines[i];
-                var lineModel = new LineModel(line); 
-
+                var lineModel = new LineModel(line);
                 linesModel.Add(lineModel);
             }
 
@@ -71,7 +80,7 @@ public class Data
             Console.WriteLine("Error. Unknown group.");
             return;
         }
-        
+
         for (var i = 0; i < fileContent.Count; i++)
         {
             var splitedFileContent = fileContent[i].Split(';');
@@ -139,8 +148,10 @@ public class Data
 
     private void GetValueOfFile(List<LineModel> lines)
     {
-        var result = 0.0;
-        foreach (var line in lines) result += line.Value;
-        Console.WriteLine("Value for whole file: " + Math.Round(result, 2));
+        // var result = 0.0;
+        // foreach (var line in lines) result += line.Value;
+        // Console.WriteLine("Value for whole file: " + Math.Round(result, 2));
+
+        foreach (var x in lines) Console.WriteLine(x.Value);
     }
 }

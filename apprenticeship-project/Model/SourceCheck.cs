@@ -43,12 +43,13 @@ public class SourceCheck
         for (var i = 1; i < _fileContent.Count; i++)
         {
             var line = _fileContent[i];
-            var groupStr = ""; 
+            var groupStr = "";
             for (var j = 0; j < line.Length; j++)
             {
                 var splitedLine = line.Split(';');
-                groupStr = splitedLine[4]; 
+                groupStr = splitedLine[4];
             }
+
             _groups.Add(groupStr);
         }
         return structCorrect;

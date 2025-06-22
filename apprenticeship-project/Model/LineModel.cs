@@ -8,10 +8,10 @@ public class LineModel
 
     public LineModel(string line)
     {
-        var group = "";
         var date = "";
         var quantity = "";
         var value = "";
+
         var splitedLine = line.Split(';');
         var counter = 0;
 
